@@ -1,0 +1,122 @@
+<?php
+
+namespace effcore;
+
+$node = new node;
+$node->attribute_insert('data-str', '123');
+$node->attribute_insert('data-int',  123 );
+var_dump( $node->has_attribute_value('data-int', '1234') === false );
+var_dump( $node->has_attribute_value('data-int',  1234 ) === false );
+var_dump( $node->has_attribute_value('data-int', '123' ) === true  );
+var_dump( $node->has_attribute_value('data-int',  123  ) === true  );
+var_dump( $node->has_attribute_value('data-int', '12'  ) === false );
+var_dump( $node->has_attribute_value('data-int',  12   ) === false );
+var_dump( $node->has_attribute_value('data-int',  '23' ) === false );
+var_dump( $node->has_attribute_value('data-int',   23  ) === false );
+var_dump( $node->has_attribute_value('data-int', ''    ) === false );
+var_dump( $node->has_attribute_value('data-str', '1234') === false );
+var_dump( $node->has_attribute_value('data-str',  1234 ) === false );
+var_dump( $node->has_attribute_value('data-str', '123' ) === true  );
+var_dump( $node->has_attribute_value('data-str',  123  ) === true  );
+var_dump( $node->has_attribute_value('data-str', '12'  ) === false );
+var_dump( $node->has_attribute_value('data-str',  12   ) === false );
+var_dump( $node->has_attribute_value('data-str',  '23' ) === false );
+var_dump( $node->has_attribute_value('data-str',   23  ) === false );
+var_dump( $node->has_attribute_value('data-str', ''    ) === false );
+var_dump( $node->has_attribute_value('unknown',  '123' ) === false );
+
+print nl;
+
+$node = new node;
+$node->attribute_insert('data-str', 'abc 123 def');
+$node->attribute_insert('data-int',  123 );
+var_dump( $node->has_attribute_value_contains('data-int', '1234') === false );
+var_dump( $node->has_attribute_value_contains('data-int',  1234 ) === false );
+var_dump( $node->has_attribute_value_contains('data-int', '123' ) === true  );
+var_dump( $node->has_attribute_value_contains('data-int',  123  ) === true  );
+var_dump( $node->has_attribute_value_contains('data-int', '12'  ) === true  );
+var_dump( $node->has_attribute_value_contains('data-int',  12   ) === true  );
+var_dump( $node->has_attribute_value_contains('data-int',  '23' ) === true  );
+var_dump( $node->has_attribute_value_contains('data-int',   23  ) === true  );
+var_dump( $node->has_attribute_value_contains('data-int', ''    ) === false );
+var_dump( $node->has_attribute_value_contains('data-str', '1234') === false );
+var_dump( $node->has_attribute_value_contains('data-str',  1234 ) === false );
+var_dump( $node->has_attribute_value_contains('data-str', '123' ) === true  );
+var_dump( $node->has_attribute_value_contains('data-str',  123  ) === true  );
+var_dump( $node->has_attribute_value_contains('data-str', '12'  ) === true  );
+var_dump( $node->has_attribute_value_contains('data-str',  12   ) === true  );
+var_dump( $node->has_attribute_value_contains('data-str',  '23' ) === true  );
+var_dump( $node->has_attribute_value_contains('data-str',   23  ) === true  );
+var_dump( $node->has_attribute_value_contains('data-str', ''    ) === false );
+var_dump( $node->has_attribute_value_contains('unknown',  '123' ) === false );
+
+print nl;
+
+$node = new node;
+$node->attribute_insert('data-str', 'abc 123 def');
+$node->attribute_insert('data-int',  123 );
+var_dump( $node->has_attribute_value_includes('data-int', '1234') === false );
+var_dump( $node->has_attribute_value_includes('data-int',  1234 ) === false );
+var_dump( $node->has_attribute_value_includes('data-int', '123' ) === true  );
+var_dump( $node->has_attribute_value_includes('data-int',  123  ) === true  );
+var_dump( $node->has_attribute_value_includes('data-int', '12'  ) === false );
+var_dump( $node->has_attribute_value_includes('data-int',  12   ) === false );
+var_dump( $node->has_attribute_value_includes('data-int',  '23' ) === false );
+var_dump( $node->has_attribute_value_includes('data-int',   23  ) === false );
+var_dump( $node->has_attribute_value_includes('data-int', ''    ) === false );
+var_dump( $node->has_attribute_value_includes('data-str', '1234') === false );
+var_dump( $node->has_attribute_value_includes('data-str',  1234 ) === false );
+var_dump( $node->has_attribute_value_includes('data-str', '123' ) === true  );
+var_dump( $node->has_attribute_value_includes('data-str',  123  ) === true  );
+var_dump( $node->has_attribute_value_includes('data-str', '12'  ) === false );
+var_dump( $node->has_attribute_value_includes('data-str',  12   ) === false );
+var_dump( $node->has_attribute_value_includes('data-str',  '23' ) === false );
+var_dump( $node->has_attribute_value_includes('data-str',   23  ) === false );
+var_dump( $node->has_attribute_value_includes('data-str', ''    ) === false );
+var_dump( $node->has_attribute_value_includes('unknown',  '123' ) === false );
+ 
+print nl;
+
+$node = new node;
+$node->attribute_insert('data-str', '123');
+$node->attribute_insert('data-int',  123 );
+var_dump( $node->has_attribute_value_starts('data-int', '1234') === false );
+var_dump( $node->has_attribute_value_starts('data-int',  1234 ) === false );
+var_dump( $node->has_attribute_value_starts('data-int', '123' ) === true  );
+var_dump( $node->has_attribute_value_starts('data-int',  123  ) === true  );
+var_dump( $node->has_attribute_value_starts('data-int', '12'  ) === true  );
+var_dump( $node->has_attribute_value_starts('data-int',  12   ) === true  );
+var_dump( $node->has_attribute_value_starts('data-int',  '23' ) === false );
+var_dump( $node->has_attribute_value_starts('data-int',   23  ) === false );
+var_dump( $node->has_attribute_value_starts('data-str', '1234') === false );
+var_dump( $node->has_attribute_value_starts('data-str',  1234 ) === false );
+var_dump( $node->has_attribute_value_starts('data-str', '123' ) === true  );
+var_dump( $node->has_attribute_value_starts('data-str',  123  ) === true  );
+var_dump( $node->has_attribute_value_starts('data-str', '12'  ) === true  );
+var_dump( $node->has_attribute_value_starts('data-str',  12   ) === true  );
+var_dump( $node->has_attribute_value_starts('data-str',  '23' ) === false );
+var_dump( $node->has_attribute_value_starts('data-str',   23  ) === false );
+var_dump( $node->has_attribute_value_starts('unknown',  '123' ) === false );
+
+print nl;
+
+$node = new node;
+$node->attribute_insert('data-str', '123');
+$node->attribute_insert('data-int',  123 );
+var_dump( $node->has_attribute_value_ends('data-int', '1234') === false );
+var_dump( $node->has_attribute_value_ends('data-int',  1234 ) === false );
+var_dump( $node->has_attribute_value_ends('data-int', '123' ) === true  );
+var_dump( $node->has_attribute_value_ends('data-int',  123  ) === true  );
+var_dump( $node->has_attribute_value_ends('data-int', '12'  ) === false );
+var_dump( $node->has_attribute_value_ends('data-int',  12   ) === false );
+var_dump( $node->has_attribute_value_ends('data-int',  '23' ) === true  );
+var_dump( $node->has_attribute_value_ends('data-int',   23  ) === true  );
+var_dump( $node->has_attribute_value_ends('data-str', '1234') === false );
+var_dump( $node->has_attribute_value_ends('data-str',  1234 ) === false );
+var_dump( $node->has_attribute_value_ends('data-str', '123' ) === true  );
+var_dump( $node->has_attribute_value_ends('data-str',  123  ) === true  );
+var_dump( $node->has_attribute_value_ends('data-str', '12'  ) === false );
+var_dump( $node->has_attribute_value_ends('data-str',  12   ) === false );
+var_dump( $node->has_attribute_value_ends('data-str',  '23' ) === true  );
+var_dump( $node->has_attribute_value_ends('data-str',   23  ) === true  );
+var_dump( $node->has_attribute_value_ends('unknown',  '123' ) === false );

@@ -1,0 +1,98 @@
+<?php
+
+namespace effcore;
+
+var_dump( core::fractional_part_length_get('', false) === 0 );
+var_dump( core::fractional_part_length_get('100', false) === 0 );
+var_dump( core::fractional_part_length_get('0', false) === 0 );
+var_dump( core::fractional_part_length_get('0.00100', false) === 5 );
+var_dump( core::fractional_part_length_get('123456789.1', false) === 1 );
+var_dump( core::fractional_part_length_get('123456789.12', false) === 2 );
+var_dump( core::fractional_part_length_get('123456789.123', false) === 3 );
+var_dump( core::fractional_part_length_get('123456789.1234', false) === 4 );
+var_dump( core::fractional_part_length_get('123456789.12345', false) === 5 );
+var_dump( core::fractional_part_length_get('123456789.123456', false) === 6 );
+var_dump( core::fractional_part_length_get('123456789.1234567', false) === 7 );
+var_dump( core::fractional_part_length_get('123456789.12345678', false) === 8 );
+var_dump( core::fractional_part_length_get('123456789.123456789', false) === 9 );
+var_dump( core::fractional_part_length_get('123456789.100000', false) === 6 );
+var_dump( core::fractional_part_length_get('123456789.1200000', false) === 7 );
+var_dump( core::fractional_part_length_get('123456789.12300000', false) === 8 );
+var_dump( core::fractional_part_length_get('123456789.123400000', false) === 9 );
+var_dump( core::fractional_part_length_get('123456789.1234500000', false) === 10 );
+var_dump( core::fractional_part_length_get('123456789.12345600000', false) === 11 );
+var_dump( core::fractional_part_length_get('123456789.123456700000', false) === 12 );
+var_dump( core::fractional_part_length_get('123456789.1234567800000', false) === 13 );
+var_dump( core::fractional_part_length_get('123456789.12345678900000', false) === 14 );
+
+var_dump( core::fractional_part_length_get('') === 0 );
+var_dump( core::fractional_part_length_get('100') === 0 );
+var_dump( core::fractional_part_length_get('0') === 0 );
+var_dump( core::fractional_part_length_get('0.00100') === 3 );
+var_dump( core::fractional_part_length_get('123456789.1') === 1 );
+var_dump( core::fractional_part_length_get('123456789.12') === 2 );
+var_dump( core::fractional_part_length_get('123456789.123') === 3 );
+var_dump( core::fractional_part_length_get('123456789.1234') === 4 );
+var_dump( core::fractional_part_length_get('123456789.12345') === 5 );
+var_dump( core::fractional_part_length_get('123456789.123456') === 6 );
+var_dump( core::fractional_part_length_get('123456789.1234567') === 7 );
+var_dump( core::fractional_part_length_get('123456789.12345678') === 8 );
+var_dump( core::fractional_part_length_get('123456789.123456789') === 9 );
+var_dump( core::fractional_part_length_get('123456789.100000') === 1 );
+var_dump( core::fractional_part_length_get('123456789.1200000') === 2 );
+var_dump( core::fractional_part_length_get('123456789.12300000') === 3 );
+var_dump( core::fractional_part_length_get('123456789.123400000') === 4 );
+var_dump( core::fractional_part_length_get('123456789.1234500000') === 5 );
+var_dump( core::fractional_part_length_get('123456789.12345600000') === 6 );
+var_dump( core::fractional_part_length_get('123456789.123456700000') === 7 );
+var_dump( core::fractional_part_length_get('123456789.1234567800000') === 8 );
+var_dump( core::fractional_part_length_get('123456789.12345678900000') === 9 );
+
+var_dump( core::fractional_part_length_get(1.23e6) === 0 );
+var_dump( core::fractional_part_length_get(1.23e-6) !== 8 ); # 0.00000123
+
+var_dump( core::fractional_part_length_get(100, false) === 40 );
+var_dump( core::fractional_part_length_get(0, false) === 40 );
+var_dump( core::fractional_part_length_get(0.00100, false) === 40 );
+var_dump( core::fractional_part_length_get(123456789.1, false) === 40 );
+var_dump( core::fractional_part_length_get(123456789.12, false) === 40 );
+var_dump( core::fractional_part_length_get(123456789.123, false) === 40 );
+var_dump( core::fractional_part_length_get(123456789.1234, false) === 40 );
+var_dump( core::fractional_part_length_get(123456789.12345, false) === 40 );
+var_dump( core::fractional_part_length_get( 23456789.123456, false) === 40 );
+var_dump( core::fractional_part_length_get(  3456789.1234567, false) === 40 );
+var_dump( core::fractional_part_length_get(    56789.12345678, false) === 40 );
+var_dump( core::fractional_part_length_get(     6789.123456789, false) === 40 );
+var_dump( core::fractional_part_length_get(123456789.100000, false) === 40 );
+var_dump( core::fractional_part_length_get(123456789.1200000, false) === 40 );
+var_dump( core::fractional_part_length_get(123456789.12300000, false) === 40 );
+var_dump( core::fractional_part_length_get(123456789.123400000, false) === 40 );
+var_dump( core::fractional_part_length_get(123456789.1234500000, false) === 40 );
+var_dump( core::fractional_part_length_get( 23456789.12345600000, false) === 40 );
+var_dump( core::fractional_part_length_get(  3456789.123456700000, false) === 40 );
+var_dump( core::fractional_part_length_get(   456789.1234567800000, false) === 40 );
+var_dump( core::fractional_part_length_get(    56789.12345678900000, false) === 40 );
+var_dump( core::fractional_part_length_get(     6789.123456789000000, false) === 40 );
+
+var_dump( core::fractional_part_length_get(100) === 0 );
+var_dump( core::fractional_part_length_get(0) === 0 );
+var_dump( core::fractional_part_length_get(0.00100) === 3 );
+var_dump( core::fractional_part_length_get(123456789.1) === 1 );
+var_dump( core::fractional_part_length_get(123456789.12) === 2 );
+var_dump( core::fractional_part_length_get(123456789.123) === 3 );
+var_dump( core::fractional_part_length_get(123456789.1234) === 4 );
+var_dump( core::fractional_part_length_get(123456789.12345) === 5 );
+var_dump( core::fractional_part_length_get( 23456789.123456) === 6 );
+var_dump( core::fractional_part_length_get(  3456789.1234567) === 7 );
+var_dump( core::fractional_part_length_get(    56789.12345678) === 8 );
+var_dump( core::fractional_part_length_get(     6789.123456789) === 9 );
+var_dump( core::fractional_part_length_get(123456789.100000) === 1 );
+var_dump( core::fractional_part_length_get(123456789.1200000) === 2 );
+var_dump( core::fractional_part_length_get(123456789.12300000) === 3 );
+var_dump( core::fractional_part_length_get(123456789.123400000) === 4 );
+var_dump( core::fractional_part_length_get(123456789.1234500000) === 5 );
+var_dump( core::fractional_part_length_get( 23456789.12345600000) === 6 );
+var_dump( core::fractional_part_length_get(  3456789.123456700000) === 7 );
+var_dump( core::fractional_part_length_get(   456789.1234567800000) === 8 );
+var_dump( core::fractional_part_length_get(    56789.12345678900000) === 9 );
+var_dump( core::fractional_part_length_get(     6789.123456789000000) === 9 );

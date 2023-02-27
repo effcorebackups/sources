@@ -1,0 +1,22 @@
+#!/bin/bash
+
+rm /usr/local/www/effcore/_download/log-anonymous.txt
+rm /usr/local/www/effcore/_download/log-registered.txt
+rm -rf /usr/local/www/effcore/_download/effcore/result
+
+wget --recursive \
+     --level=100 \
+     --directory-prefix=/usr/local/www/effcore/_download/result/anonymous \
+     --append-output=/usr/local/www/effcore/_download/log-anonymous.txt \
+     --default-page=index \
+     http://effcore
+
+wget --recursive \
+     --level=100 \
+     --directory-prefix=/usr/local/www/effcore/_download/result/registered \
+     --append-output=/usr/local/www/effcore/_download/log-registered.txt \
+     --load-cookies=/usr/local/www/effcore/_download/cookies.txt \
+     --keep-session-cookies \
+     --default-page=index \
+     --user-agent="INSERT USER AGENT" \
+     http://effcore
